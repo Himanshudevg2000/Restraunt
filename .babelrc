@@ -5,6 +5,7 @@
             "transform-remove-console",
             {
                 "exclude": [
+                        "log",
                     "error",
                     "warn"
                 ]

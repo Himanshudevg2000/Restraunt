@@ -8,21 +8,21 @@
     border: 2px solid;
 }
 
-.nav-items >ul{
+.nav-items>ul {
     list-style: none;
     display: flex;
 
 }
 
-.nav-items >ul>li {
+.nav-items>ul>li {
     padding: 10px;
     font-size: 20px;
 }
 
 .img-header {
-    height: 4rem ;
-    width: 7rem;
     height: 5rem;
+    width: 8rem;
+    margin: 0 0 0 10px;
 }
 
 .res-card {
@@ -34,7 +34,7 @@
     /* background-color: light; */
 }
 
-.res-card:hover{
+.res-card:hover {
     border: 2px solid black;
 }
 
@@ -44,12 +44,12 @@
     border: 2px solid red;
 }
 
-.res-logo{
+.res-logo {
     width: 100%;
     height: 45%;
 }
 
-.res-container{
+.res-container {
     display: flex;
     flex-wrap: wrap;
 }
@@ -58,5 +58,9 @@
     border: 1px solid green;
     background-color: green;
     color: white;
-    display:inline;
+    display: inline;
+}
+
+.filter-btn {
+    margin: 5px;
 }
