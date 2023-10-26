@@ -63,8 +63,9 @@
 }
 
 .filter-btn {
-    margin: 5px;
+    margin: 0 15px;
     background-color:blueviolet;
+    color: white;
     cursor: pointer;
 }
 .filter-btn:hover{
@@ -82,4 +83,19 @@
     margin: 5px;
     height: 350px;
     background-color: #f0f0f0;
+}
+
+.filter{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.search-btn {
+    /* padding: 10px; */
+    margin: 0 5px;
+}
+
+.search-input{
+    width: 15rem;
 }
