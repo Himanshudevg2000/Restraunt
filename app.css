@@ -55,6 +55,11 @@
     flex-wrap: wrap;
 }
 
+.res-link {
+    text-decoration: none;
+    color: black;
+}
+
 .avgRating {
     border: 1px solid green;
     background-color: green;

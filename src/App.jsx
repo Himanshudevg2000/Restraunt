@@ -5,6 +5,7 @@ import Body from "./components/Body";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
+import RestrauntCardById from "./components/RestrauntCardById";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 const Footer = () => {
@@ -33,6 +34,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/",
                 element: <Body />,
+            },
+            {
+                path: "/restraunt/:id",
+                element: <RestrauntCardById />,
             },
             {
                 path: "/about",
