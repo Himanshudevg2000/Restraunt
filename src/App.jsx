@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import AboutClass from "./components/AboutClass";
 import Error from "./components/Error";
 import RestrauntCardById from "./components/RestrauntCardById";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
@@ -41,7 +42,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About />,
+                element: <AboutClass />,
             },
             {
                 path: "/contact",
