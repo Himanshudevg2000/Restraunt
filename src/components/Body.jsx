@@ -1,31 +1,31 @@
 import RestrauntCard from "./RestrauntCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useRestrauntList from "../utils/useRestrauntList";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
-    const [listOfRestraunts, setListOfRestraunts] = useState([]);
-    const [filteredRestraunts, setFilteredRestraunts] = useState([]);
+    // const [listOfRestraunts, setListOfRestraunts] = useState([]);
+    // const [filteredRestraunts, setFilteredRestraunts] = useState([]);
     const [searchText, setSearchText] = useState();
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        const updatedata = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        setListOfRestraunts(updatedata);
-        setFilteredRestraunts(updatedata);
-    }
+    const listOfRestraunts = useRestrauntList();
+    // setFilteredRestraunts(listOfRestraunts);
+    console.log('listOfRestraunts: ', listOfRestraunts);
 
     // Conditional rendering
     if (listOfRestraunts.length === 0) {
         // return <h1>Loading.....</h1>
         return <Shimmer />
     }
+
+    // const onlineStatus = useOnlineStatus();
+    // console.log('onlineStatus: ', onlineStatus);
+    // if(onlineStatus === false){
+    //     return <h1>Looks like you are offline</h1>
+    // }
 
     return (
         <div className="body">
@@ -48,7 +48,7 @@ const Body = () => {
                                     // res.info.name.includes(searchText)
                                     res.info.name.toLowerCase().includes(searchText.toLowerCase())
                                 )
-                            setFilteredRestraunts(filteredRestaurant)
+                            // setFilteredRestraunts(filteredRestaurant)
                         }}
                     >Search</button>
                 </div>
@@ -57,14 +57,14 @@ const Body = () => {
                     className="filter-btn"
                     onClick={() => {
                         const filteredList = listOfRestraunts?.filter((res) => res.info.avgRating > 4.2);
-                        setListOfRestraunts(filteredList);
+                        // setListOfRestraunts(filteredList);
                     }}>
                     Top Rated Restraunt
                 </button>
             </div>
             <div className="res-container">
                 {
-                    filteredRestraunts?.map((restraunt) => (
+                    listOfRestraunts?.map((restraunt) => (
                         <Link className="res-link" to={`/restraunt/${restraunt?.info.id}`}>
                             <RestrauntCard
                                 key={restraunt?.info.id}
