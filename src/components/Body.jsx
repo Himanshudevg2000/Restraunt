@@ -10,6 +10,7 @@ const Body = () => {
     // const [listOfRestraunts, setListOfRestraunts] = useState([]);
     // const [filteredRestraunts, setFilteredRestraunts] = useState([]);
     const [searchText, setSearchText] = useState();
+    const onlineStatus = useOnlineStatus();
 
     const listOfRestraunts = useRestrauntList();
     // setFilteredRestraunts(listOfRestraunts);
@@ -21,11 +22,11 @@ const Body = () => {
         return <Shimmer />
     }
 
-    // const onlineStatus = useOnlineStatus();
-    // console.log('onlineStatus: ', onlineStatus);
-    // if(onlineStatus === false){
-    //     return <h1>Looks like you are offline</h1>
-    // }
+
+    console.log('onlineStatus: ', onlineStatus);
+    if (onlineStatus === false) {
+        return <h1>Looks like you are offline</h1>
+    }
 
     return (
         <div className="body">

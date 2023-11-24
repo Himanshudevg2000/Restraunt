@@ -20,6 +20,11 @@
     font-size: 18px;
 }
 
+.nav-items>ul>li>Link {
+    text-decoration: none;
+    color: black;
+}
+
 .img-header {
     height: 5rem;
     width: 8rem;

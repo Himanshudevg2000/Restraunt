@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useOnlineStatus = () => {
 
-  let [onlineStatus, setOnlineStatus] = useState(true)
+  const [onlineStatus, setOnlineStatus] = useState(true)
 
   useEffect(() => {
     window.addEventListener("offline", () => {
