@@ -10,10 +10,11 @@ const useRestrauntList = () => {
 
   const fetchData = async () => {
     const data = await fetch(RESTRAUNT_LIST);
+    // console.log('data: ', data);
     const json = await data.json();
-    const updatedata =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
+    // console.log('json: ', json);
+    const updatedata = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // console.log("updatedata: ", updatedata);
     setListOfRestraunts(updatedata);
   };
 
