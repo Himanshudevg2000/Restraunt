@@ -1,4 +1,4 @@
-import RestrauntCard from "./RestrauntCard";
+import RestrauntCard, {withDiscountLabel} from "./RestrauntCard";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,9 +11,12 @@ const Body = () => {
   const [searchText, setSearchText] = useState();
   const onlineStatus = useOnlineStatus();
 
+  const RestrauntCardDiscount = withDiscountLabel(RestrauntCard)
+
   const listOfRestraunts = useRestrauntList();
   // setFilteredRestraunts(listOfRestraunts);
   console.log("listOfRestraunts: ", listOfRestraunts);
+  // console.log("listOfRestraunts: ", listOfRestraunts[1].info.aggregatedDiscountInfoV3.header);
 
   // Conditional rendering
   if (listOfRestraunts.length === 0) {
@@ -71,7 +74,11 @@ const Body = () => {
       <div className="flex flex-wrap">
         {listOfRestraunts?.map((restraunt) => (
           <Link className="res-link" to={`/restraunt/${restraunt?.info.id}`}>
+            {restraunt?.data?.aggregatedDiscountInfoV3?.header ? (
+              <RestrauntCardDiscount resData={restraunt} />
+            ):
             <RestrauntCard key={restraunt?.info.id} resData={restraunt?.info} />
+          }
           </Link>
         ))}
       </div>
