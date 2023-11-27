@@ -33,10 +33,11 @@ class UserClass extends React.Component {
     const { name, location, avatar_url } = this.state.userInfo;
 
     return (
-      <div>
+      <div className="m-2 p-2">
         <div>
           <h2>Count - {this.state.count}</h2>
           <button
+          className="m-2 p-2 bg-gray-300 rounded-lg hover:bg-slate-400"
             onClick={() => {
               this.setState({
                 count: this.state.count + 1,
@@ -50,10 +51,10 @@ class UserClass extends React.Component {
           <h3>designation - Software developer</h3> */}
         </div>
         <div>
-          <h2>User Details</h2>
-          <h3>Name - {name}</h3>
-          <h3>Avatar - </h3>
-          <img src={avatar_url} height="200px"></img>
+          <h2 className=" font-bold">User Details</h2>
+          <h3 className=" font-bold text-blue-400">Name - {name}</h3>
+          <h3 className="font-bold text-blue-400">Avatar </h3>
+          <img className="h-44" src={avatar_url} height="200px"></img>
         </div>
       </div>
     );

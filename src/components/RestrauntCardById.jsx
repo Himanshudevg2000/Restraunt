@@ -9,9 +9,9 @@ const RestrauntCardById = () => {
   if (!restrauntName) return <Shimmer />;
 
   return (
-    <div>
-      <h1>{restrauntName?.data?.cards[0]?.card?.card?.info.name}</h1>
-      <h3>
+    <div className=" m-4 p-14 w-[450px] bg-gray-100 items-center text-center">
+      <h1 className=" font-bold ">{restrauntName?.data?.cards[0]?.card?.card?.info.name}</h1>
+      <h3 className="text-red-600">
         {restrauntName?.data?.cards[0]?.card?.card?.info.costForTwoMessage}
       </h3>
       <h3>{restrauntName?.data?.cards[0]?.card?.card?.info.avgRating}</h3>

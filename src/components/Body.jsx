@@ -6,8 +6,8 @@ import useRestrauntList from "../utils/useRestrauntList";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  // const [listOfRestraunts, setListOfRestraunts] = useState([]);
-  // const [filteredRestraunts, setFilteredRestraunts] = useState([]);
+//   const [listOfRestraunts, setListOfRestraunts] = useState([]);
+//   const [filteredRestraunts, setFilteredRestraunts] = useState([]);
   const [searchText, setSearchText] = useState();
   const onlineStatus = useOnlineStatus();
 
@@ -47,7 +47,7 @@ const Body = () => {
                 // res.info.name.includes(searchText)
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              // setFilteredRestraunts(filteredRestaurant)
+            //   setFilteredRestraunts(filteredRestaurant)
             }}
           >
             Search
@@ -61,14 +61,14 @@ const Body = () => {
               const filteredList = listOfRestraunts?.filter(
                 (res) => res.info.avgRating > 4.2
               );
-              // setListOfRestraunts(filteredList);
+            //   setListOfRestraunts(filteredList);
             }}
           >
             Top Rated Restraunt
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {listOfRestraunts?.map((restraunt) => (
           <Link className="res-link" to={`/restraunt/${restraunt?.info.id}`}>
             <RestrauntCard key={restraunt?.info.id} resData={restraunt?.info} />
