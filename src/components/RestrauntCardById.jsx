@@ -32,8 +32,8 @@ const RestrauntCardById = () => {
       <h3 className="font-bold text-ll">{restrauntdata.avgRating}-Rating</h3>
 
       <h2 className="font-bold text-xl">Menu</h2>
-      {categories.map((category) => (
-        <RestrauntCategory resdata={category?.card?.card} />
+      {categories.map((category,index) => (
+        <RestrauntCategory key={index} resdata={category?.card?.card} />
       ))}
 
     </div>
