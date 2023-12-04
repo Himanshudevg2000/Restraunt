@@ -2,11 +2,14 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestrauntMenu from "../utils/useRestrauntMenu";
 import RestrauntCategory from "./RestrauntCategory";
+import { useState } from "react";
 
 const RestrauntCardById = () => {
   const { id } = useParams();
   const restrauntName = useRestrauntMenu(id);
   // console.log("restrauntName: ", restrauntName);
+
+  const [showIndex, setShowIndex] = useState(null);
 
   if (!restrauntName) return <Shimmer />;
 
@@ -33,7 +36,12 @@ const RestrauntCardById = () => {
 
       <h2 className="font-bold text-xl">Menu</h2>
       {categories.map((category,index) => (
-        <RestrauntCategory key={index} resdata={category?.card?.card} />
+        <RestrauntCategory 
+        key={index} 
+        resdata={category?.card?.card} 
+        showItems={ index === showIndex ? true: false }
+        setShowIndex = {()=> setShowIndex(index)}
+        />
       ))}
 
     </div>

@@ -11,14 +11,21 @@ const ItemList = ({ items }) => {
                         <div className="">
                             {item?.itemCards?.map((itemList) => (
                                 <div key={itemList?.card?.info?.id} className="mx-2 my-2 py-3 border-gray-200 border-b-2 text-left flex justify-between">
-                                    <div className="py-2">
+                                    <div className=" w-10/12">
                                         <span className="font-bold text-l">{itemList?.card?.info?.name}</span>
                                         <br />
                                         <span className="text-m">
                                             ₹{(itemList?.card?.info?.price || itemList?.card?.info?.defaultPrice) / 100}</span>
                                         <p className="text-xs">{itemList?.card?.info?.description}</p>
                                     </div>
-                                    <div className="">
+                                    <div className="w-2/12">
+
+                                        <div className="absolute">
+                                            <button className="mx-16 text-white bg-black px-2 rounded-xl hover:shadow-lg">
+                                                Add+
+                                            </button>
+                                        </div>
+
                                         <img className=" rounded-lg w-32 h-fit" alt="logo" src={`${CDN_URL}${itemList?.card?.info?.imageId}`}></img>
 
                                     </div>
