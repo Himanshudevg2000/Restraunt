@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestrauntCard = (props) => {
     const { resData } = props;
+    const {loggedInUser} = useContext(UserContext)
 
     const {
         id,
@@ -20,10 +23,8 @@ const RestrauntCard = (props) => {
             <h4>{costForTwo}</h4>
             <h4>{avgRating}</h4>
             <h4>{cuisines.join(", ")}</h4>
+            {/* <h4>User: {loggedInUser}</h4> */}
         </div>
-        // <>
-        //     {mapResult}
-        // </>
     )
 };
 

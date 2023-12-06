@@ -1,21 +1,22 @@
-import RestrauntCard, {withDiscountLabel} from "./RestrauntCard";
-import { useState } from "react";
+import RestrauntCard, { withDiscountLabel } from "./RestrauntCard";
+import { useContext, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestrauntList from "../utils/useRestrauntList";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
-//   const [listOfRestraunts, setListOfRestraunts] = useState([]);
-//   const [filteredRestraunts, setFilteredRestraunts] = useState([]);
+  //   const [listOfRestraunts, setListOfRestraunts] = useState([]);
+  //   const [filteredRestraunts, setFilteredRestraunts] = useState([]);
   const [searchText, setSearchText] = useState();
   const onlineStatus = useOnlineStatus();
 
-  const RestrauntCardDiscount = withDiscountLabel(RestrauntCard)
+  const RestrauntCardDiscount = withDiscountLabel(RestrauntCard);
 
   const listOfRestraunts = useRestrauntList();
   // setFilteredRestraunts(listOfRestraunts);
-  console.log("listOfRestraunts: ", listOfRestraunts);
+  // console.log("listOfRestraunts: ", listOfRestraunts);
   // console.log("listOfRestraunts: ", listOfRestraunts[1].info.aggregatedDiscountInfoV3.header);
 
   // Conditional rendering
@@ -28,6 +29,8 @@ const Body = () => {
   if (onlineStatus === false) {
     return <h1>Looks like you are offline</h1>;
   }
+
+  const { loggedInUser ,setUserName} = useContext(UserContext)
 
   return (
     <div className="body">
@@ -50,7 +53,7 @@ const Body = () => {
                 // res.info.name.includes(searchText)
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-            //   setFilteredRestraunts(filteredRestaurant)
+              //   setFilteredRestraunts(filteredRestaurant)
             }}
           >
             Search
@@ -64,21 +67,30 @@ const Body = () => {
               const filteredList = listOfRestraunts?.filter(
                 (res) => res.info.avgRating > 4.2
               );
-            //   setListOfRestraunts(filteredList);
+              //   setListOfRestraunts(filteredList);
             }}
           >
             Top Rated Restraunt
           </button>
         </div>
+
+        <div className="m-2">
+          <label htmlFor="User">UserName: </label>
+            <input type="text" className="border border-black p-2" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)} />
+        </div>
+
       </div>
       <div className="flex flex-wrap">
         {listOfRestraunts?.map((restraunt) => (
           <Link className="res-link" to={`/restraunt/${restraunt?.info.id}`}>
             {restraunt?.data?.aggregatedDiscountInfoV3?.header ? (
               <RestrauntCardDiscount resData={restraunt} />
-            ):
-            <RestrauntCard key={restraunt?.info.id} resData={restraunt?.info} />
-          }
+            ) : (
+              <RestrauntCard
+                key={restraunt?.info.id}
+                resData={restraunt?.info}
+              />
+            )}
           </Link>
         ))}
       </div>
