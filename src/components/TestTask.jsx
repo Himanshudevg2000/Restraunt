@@ -2,9 +2,7 @@ import React, { useState } from "react";
 
 const TestTask = () => {
 
-
-    // -------------------------------------------move tasks to left to right -----------------------------------------------//
-
+  // -------------------------------------------move tasks to left to right -----------------------------------------------//
 
   //   const [tasks, setTasks] = useState([
 
@@ -81,64 +79,65 @@ const TestTask = () => {
   //   );
   // };
 
+  //-----------------------------------------dropdown task-------------------------------------------//
 
-//-----------------------------------------dropdown task-------------------------------------------//
+  // const countries = [
+  //   {
+  //     name: "India",
+  //     value: "IN",
+  //     cities: ["Delhi", "Mumbai"],
+  //   },
+  //   {
+  //     name: "United States",
+  //     value: "US",
+  //     cities: ["California", "Washington"],
+  //   },
+  //   {
+  //     name: "Bangladesh",
+  //     value: "BN",
+  //     cities: ["dhaka", "bangla"],
+  //   },
+  // ];
 
-  const countries = [
-    {
-      name: "India",
-      value: "IN",
-      cities: ["Delhi", "Mumbai"],
-    },
-    {
-      name: "United States",
-      value: "US",
-      cities: ["California", "Washington"],
-    },
-    {
-      name: "Bangladesh",
-      value: "BN",
-      cities: ["dhaka", "bangla"],
-    },
-  ];
-
-  const [country, setCountry] = useState({name:"", value: "", cities:[]});
+  // const [country, setCountry] = useState({name:"", value: "", cities:[]});
 
   return (
-    <div>
-      <h1>Selector</h1>
+    //   <div>
+    //     <h1>Selector</h1>
 
+    //     <select
+    //       value={country.value}
+    //       onChange={(e) => {
+    //         const selectedCountry = countries.filter(
+    //           (item) => item.value === e.target.value
+    //         );
 
+    //         if (selectedCountry.length > 0) {
+    //           setCountry(selectedCountry[0]);
+    //         }
+    //       }}
+    //       className="border border-black"
+    //     >
+    //       {countries.map((item, index) => (
+    //         <option key={item.value} value={item.value}>
+    //           {item.name}
+    //         </option>
+    //       ))}
+    //     </select>
 
-      <select
-        value={country.value}
-        onChange={(e) => {
-          const selectedCountry = countries.filter(
-            (item) => item.value === e.target.value
-          );
+    //     <select
+    //       value ={country.cities}
+    //       className="border border-black"
+    //     >
+    //       {country.cities.map((item, index) => {
+    //         return <option value={index}> {item}</option>;
+    //       })}
+    //     </select>
+    //   </div>
 
-          if (selectedCountry.length > 0) {
-            setCountry(selectedCountry[0]);
-          }
-        }}
-        className="border border-black"
-      >
-        {countries.map((item, index) => (
-          <option key={item.value} value={item.value}>
-            {item.name}
-          </option>
-        ))}
-      </select>
-
-      <select
-        value ={country.cities}
-        className="border border-black"
-      >
-        {country.cities.map((item, index) => {
-          return <option value={index}> {item}</option>;
-        })}
-      </select>
-    </div>
+    <>
+      <h1>Test</h1>
+    </>
   );
 };
 
