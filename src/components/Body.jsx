@@ -118,7 +118,7 @@ const Body = () => {
   const listOfRestraunts = useRestrauntList();
 
   // Conditional rendering
-  if (listOfRestraunts.length === 0) {
+  if (listOfRestraunts?.length === 0) {
     return <Shimmer />;
   }
 

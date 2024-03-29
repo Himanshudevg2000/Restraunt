@@ -13,7 +13,7 @@ const useRestrauntList = () => {
     // console.log('data: ', data);
     const json = await data.json();
     // console.log('json: ', json);
-    const updatedata = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const updatedata = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     // console.log("updatedata: ", updatedata);
     setListOfRestraunts(updatedata);
   };
