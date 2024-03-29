@@ -7,14 +7,14 @@ import { useState } from "react";
 const RestrauntCardById = () => {
   const { id } = useParams();
   const restrauntName = useRestrauntMenu(id);
-  // console.log("restrauntName: ", restrauntName);
+  console.log("restrauntName: ", restrauntName);
 
   const [showIndex, setShowIndex] = useState(null);
 
   if (!restrauntName) return <Shimmer />;
 
   const categories =
-    restrauntName?.data?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    restrauntName?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) =>
         c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
@@ -22,12 +22,13 @@ const RestrauntCardById = () => {
 
   // console.log("categories: ", categories);
 
-  const restrauntdata = restrauntName?.data?.cards[0]?.card?.card?.info;
+  const restrauntdata = restrauntName?.data?.cards[2]?.card?.card?.info;
+  console.log('restrauntdata: ', restrauntdata);
 
   return (
     <div className=" mx-60 my-5 p-14 items-center text-center">
       <h1 className=" font-bold text-3xl ">
-        {restrauntdata.name}
+        {restrauntdata?.name}
       </h1>
       <h3 className="font-bold text-xl">
         {restrauntdata.cuisines.join(", ")} - {restrauntdata.costForTwoMessage}
