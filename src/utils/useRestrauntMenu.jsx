@@ -9,7 +9,9 @@ const useRestrauntMenu = (id) => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(MENU_API + id);
+    // const data = await fetch(MENU_API + id);
+    const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+    const data = await fetch(`${CORS_PROXY}${encodeURIComponent(MENU_API + id)}`);
     const json = await data.json();
     setResInfo(json);
   };

@@ -9,7 +9,9 @@ const useRestrauntList = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(RESTRAUNT_LIST);
+    // const data = await fetch(RESTRAUNT_LIST);
+    const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+    const data = await fetch(`${CORS_PROXY}${encodeURIComponent(RESTRAUNT_LIST)}`);
     // console.log('data: ', data);
     const json = await data.json();
     // console.log('json: ', json);
